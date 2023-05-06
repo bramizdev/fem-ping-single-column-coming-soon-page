@@ -1,7 +1,9 @@
 /* ----- Custom properties ----- */
 :root {
   --clr-primary-300: hsl(223, 100%, 88%);
+  --clr-primary-350: hsla(223, 100%, 88%, 0.75);
   --clr-primary-500: hsl(223, 87%, 63%);
+  --clr-primary-550: hsl(223, 87%, 75%);
 
   --clr-secondary-500: hsl(354, 100%, 66%);
 
@@ -16,8 +18,18 @@
   --fw-700: 700;
 
   --fs-300: 0.625rem;
-  --fs-400: 0.75rem;
+  --fs-400: 0.7rem;
+  --fs-500: 0.75rem;
   --fs-700: 1.375rem;
+}
+
+@media (min-width: 40rem) {
+  :root {
+    --fs-300: 0.75rem;
+    --fs-400: 16px;
+    --fs-500: 1.25rem;
+    --fs-700: 3.0313rem;
+  }
 }
 
 /* ----- CSS Resety by Josh Comeau ----- */
@@ -117,13 +129,26 @@ body {
 
 /* ----- Header ----- */
 .header {
-  padding-top: 3.25rem;
+  padding-top: 3.5rem;
   padding-bottom: 0.75rem;
 }
+
+@media (min-width: 40rem) {
+  .header {
+    padding-bottom: 0.25rem;
+  }
+}
+
 .header__logo-img {
   margin: 0 auto;
   padding-top: 2rem;
   padding-bottom: 1.65rem;
+}
+
+@media (min-width: 40rem) {
+  .header__logo-img {
+    padding-bottom: 2.5rem;
+  }
 }
 
 .header__intro {
@@ -141,8 +166,13 @@ body {
 /* ----- Info ----- */
 .info {
   text-align: center;
-  font-size: var(--fs-400);
+  font-size: var(--fs-500);
   padding-bottom: 1.5rem;
+}
+@media (min-width: 40rem) {
+  .info {
+    padding-bottom: 2.5rem;
+  }
 }
 
 /* ----- Form ----- */
@@ -163,6 +193,12 @@ body {
   border-radius: 1.75rem;
 }
 
+@media (min-width: 40rem) {
+  .form__input {
+    padding: 0.95rem 2rem;
+  }
+}
+
 .form__control-input {
   width: 100%;
   border: 1px solid var(--clr-primary-300);
@@ -177,11 +213,26 @@ body {
   text-align: center;
   font-size: var(--fs-400);
   font-weight: var(--fw-600);
+
+  box-shadow: 0px 5px 3px 1px var(--clr-primary-350);
+  -webkit-box-shadow: 0px 5px 3px 1px var(--clr-primary-350);
+  -moz-box-shadow: 0px 5px 3px 1px var(--clr-primary-350);
+}
+
+.form__control-submit:is(:hover, :focus-visible) {
+  background-color: var(--clr-primary-550);
 }
 
 .main__illustration {
   padding-top: 4.25rem;
   padding-bottom: 8rem;
+}
+
+@media (min-width: 40rem) {
+  .main__illustration {
+    padding-top: 5.5rem;
+    padding-bottom: 5rem;
+  }
 }
 
 /* ----- Footer ----- */
@@ -208,4 +259,20 @@ body {
   text-align: center;
   color: var(--clr-neutral-300);
   padding-bottom: 2rem;
+}
+
+/* ---- Attribution ----- */
+.attribution {
+  text-align: center;
+}
+
+.attribution a {
+  text-decoration: none;
+  color: var(--clr-primary-500);
+  font-weight: var(--fw-600);
+}
+
+.attribution a:is(:hover, :focus-visible) {
+  outline: 2px solid var(--clr-primary-550);
+  color: var(--clr-primary-550);
 }
